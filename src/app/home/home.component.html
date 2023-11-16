@@ -1,0 +1,53 @@
+
+<p>
+{{""}}
+</p>
+
+{{""}}
+<br/>
+<input type="text" placeholder="Informe o modelo" [(ngModel)]="modelo"/>
+<input type="text" placeholder="Informe a marca" [(ngModel)]="marca"/>
+<input type="text" placeholder="Informe a cor" [(ngModel)]="cor"/>
+<input type="text" placeholder="Informe o ano de fabricacao" [(ngModel)]="anoFabricacao"/>
+<input type="text" placeholder="Informe a placa" [(ngModel)]="placa"/>
+<button (click)="adicionaVeiculo()" *ngIf="!editarVeiculo">Adicionar Veiculo</button>
+<button (click)="efetuarAlteracaoDoVeiculo()" *ngIf="editarVeiculo">Alterar Veiculo</button><br/>
+<br/>
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th> 
+      <th>Marca</th>
+      <th>Cor</th>
+      <th>Ano de fabricação</th>
+      <th>Placa</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let veiculo of veiculo; index as i">
+      <td>
+        {{veiculo.modelo}}
+      
+      </td>
+      <td>
+        
+        {{veiculo.marca}}
+      </td>
+      <td>
+        {{veiculo.cor}}
+      </td>
+      <td>
+        {{veiculo.anoFabricacao}}
+      </td>
+      <td>
+        {{veiculo.placa}}
+      </td>
+      <td>
+      
+        <button (click)="removerVeiculo(i)">Deletar</button>
+        <button (click)="alterarVeiculo(i)">Alterar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
